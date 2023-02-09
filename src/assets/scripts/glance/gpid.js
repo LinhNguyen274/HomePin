@@ -1,1 +1,0 @@
-var gpID=getGPID();function getGPID(){return location.search.substring(1).split("&").find(t=>t.startsWith("gpid")).split("=")[1]}
