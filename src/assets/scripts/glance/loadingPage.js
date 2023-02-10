@@ -137,7 +137,7 @@ function displayLoader() {
 }
 
 //This function will show the progress bar on the loading screen
-function progressBar(percentage) {
+function progressBarGlance(percentage) {
 
   $(".progress-barnew").css("width", percentage + "%");
 

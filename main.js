@@ -15,7 +15,7 @@ window.boot = function () {
             // if (progressBar) {
             //     progressBar.style.width = percent.toFixed(2) + '%';
             // }
-            progressBar(percent);
+            progressBarGlance(percent);
         };
         splash.style.display = 'block';
         // progressBar.style.width = '0%';
