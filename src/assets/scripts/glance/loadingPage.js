@@ -108,11 +108,11 @@ function addLoader() {
         <div id="replayGame"></div>
           <div id="loaderPage">
               <div id = "loaderPageContent">
-                  <img src="loadingText.png" />
+                  <img src="src/loadingText.png" />
 
                   <div class="progress-bar">
                       <div class="progress-barnew">
-                          <img id = "progressBarImg" src="loader.png" />
+                          <img id = "progressBarImg" src="src/loader.png" />
                       </div>
                   </div>
               </div>

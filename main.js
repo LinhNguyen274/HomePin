@@ -18,7 +18,7 @@ window.boot = function () {
             progressBar(percent);
         };
         splash.style.display = 'block';
-        progressBar.style.width = '0%';
+        // progressBar.style.width = '0%';
 
         cc.director.once(cc.Director.EVENT_AFTER_SCENE_LAUNCH, function () {
             splash.style.display = 'none';
