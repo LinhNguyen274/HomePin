@@ -37,17 +37,20 @@
 
   <!--<link rel="apple-touch-icon" href=".png" />-->
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
-
+  <script src="jquery-3.4.1.min.js"></script>
+  <link rel="stylesheet" href="./loadingPage.css">
+  <link rel="stylesheet" type="text/css" href="st.css" />
+  <script type="text/javascript" src="src/assets/scripts/glance/loadingPage.js"></script>
   <link rel="stylesheet" type="text/css" href="style-mobile.css" />
   <link rel="stylesheet" type="text/css" href="stickyBanner.css" />
   <link rel="icon" href="favicon.ico" />
 </head>
 
 <body>
+  <script>addLoader();</script>
   <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
   <div id="splash">
     <div class="progress-bar stripes">
-      <span style="width: 0%"></span>
     </div>
   </div>
   <div id="bannerOverlay">
