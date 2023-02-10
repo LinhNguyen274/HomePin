@@ -9,9 +9,9 @@ let isAdLoaded;
 
 var isMRECEnabledOnLP = false;
 try {
-  isMRECEnabledOnLP = location.search.substring(1).split("&").find((a) => {return a.startsWith('LPMREC')}).split("=")[1];
+  isMRECEnabledOnLP = location.search.substring(1).split("&").find((a) => { return a.startsWith('LPMREC') }).split("=")[1];
 } catch (error) {
-  console.log("LoadingPage macro missing from URL - ",error); 
+  console.log("LoadingPage macro missing from URL - ", error);
 }
 
 let isNormalGame = (isBumperAd == true && isMRECEnabledOnLP != 'true') ? false : true; //true means playing in browser
@@ -25,8 +25,8 @@ function sendCustomAnalyticsEvent(eventType, extras) {
 }
 function showBumperAd() {
 
-  if(isMRECEnabledOnLP === 'true'){
-    LPBannerInstance =  window?.GlanceGamingAdInterface?.showLoadingPageBannerAd(LPMercObj ,bannerCallbacks);
+  if (isMRECEnabledOnLP === 'true') {
+    LPBannerInstance = window?.GlanceGamingAdInterface?.showLoadingPageBannerAd(LPMercObj, bannerCallbacks);
   } else {
     if (isBumperAd) {
       console.log("Bumper Ad...");
@@ -35,8 +35,8 @@ function showBumperAd() {
       isNormalGame = false;
       BumperAd.showAd();
     }
-    else{
-      LPBannerInstance =  window?.GlanceGamingAdInterface?.showLoadingPageBannerAd(LPMercObj ,bannerCallbacks);
+    else {
+      LPBannerInstance = window?.GlanceGamingAdInterface?.showLoadingPageBannerAd(LPMercObj, bannerCallbacks);
     }
   }
 
@@ -108,11 +108,11 @@ function addLoader() {
         <div id="replayGame"></div>
           <div id="loaderPage">
               <div id = "loaderPageContent">
-                  <img src="./loadingText.png" />
+                  <img src="src/loadingText.png" />
 
                   <div class="progress-bar">
                       <div class="progress-barnew">
-                          <img id = "progressBarImg" src="./loader.png" />
+                          <img id = "progressBarImg" src="src/loader.png" />
                       </div>
                   </div>
               </div>
@@ -128,36 +128,36 @@ function addLoader() {
 }
 
 //This function can be called to display the loader
-function displayLoader(){
-    jQuery(document).ready(function () {
-        if (isNormalGame) {
-          document.getElementById("loaderPage").style.display = "flex";
-        }	
-      });
+function displayLoader() {
+  jQuery(document).ready(function () {
+    if (isNormalGame) {
+      document.getElementById("loaderPage").style.display = "flex";
+    }
+  });
 }
 
 //This function will show the progress bar on the loading screen
-function progressBar(percentage){
-  
+function progressBarLoad(percentage) {
+
   $(".progress-barnew").css("width", percentage + "%");
 
-    if(percentage >= 100){
-      console.log(timeToWait-timeElapsed);
-      setTimeout(() => {
-        goToGame();
-      }, (timeToWait-timeElapsed)*1000);
-    }
+  if (percentage >= 100) {
+    console.log(timeToWait - timeElapsed);
+    setTimeout(() => {
+      goToGame();
+    }, (timeToWait - timeElapsed) * 1000);
+  }
 }
 var timeElapsed = -1;
-var timeToWait = location.search.substring(1).split("&")?.find((a) => {return a.startsWith('LPTimer')})?.split("=")[1] || 0;
+var timeToWait = location.search.substring(1).split("&")?.find((a) => { return a.startsWith('LPTimer') })?.split("=")[1] || 0;
 function timerForLpBanner() {
 
-  var x = setInterval(function() {
+  var x = setInterval(function () {
 
     timeElapsed += 1;
     console.log("timeElapsed = ", timeElapsed, timeToWait);
 
-    if(timeElapsed>=timeToWait){
+    if (timeElapsed >= timeToWait) {
       clearInterval(x);
       console.log("timeUp");
     }
@@ -166,28 +166,28 @@ function timerForLpBanner() {
 }
 
 //setTimeoutSeconds param can be used to delay the transition. By default its value is set to 0.
-function goToGame(setTimeoutSeconds=0){
-    $("#gotoGame").click(() => {
-      
-      console.log("GotoGame calling");
-      setTimeout(() => {
-          $("#blankScreen").fadeOut("slow");
-      }, setTimeoutSeconds);
+function goToGame(setTimeoutSeconds = 0) {
+  $("#gotoGame").click(() => {
 
-    });
-  
-    if (!isNormalGame) {
-			
-        gameReady();
-    } else {
-       
-        setTimeout(() => {
-            $("#loaderPage").fadeOut("slow");
-        }, setTimeoutSeconds);
-        
-    }
+    console.log("GotoGame calling");
+    setTimeout(() => {
+      $("#blankScreen").fadeOut("slow");
+    }, setTimeoutSeconds);
 
-    
+  });
+
+  if (!isNormalGame) {
+
+    gameReady();
+  } else {
+
+    setTimeout(() => {
+      $("#loaderPage").fadeOut("slow");
+    }, setTimeoutSeconds);
+
+  }
+
+
 }
 
 

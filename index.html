@@ -35,7 +35,6 @@
   <!--<meta name="browsermode" content="application">-->
   <meta name="x5-page-mode" content="app">
   <script src="src/jquery-3.4.1.min.js"></script>
-
   <!--<link rel="apple-touch-icon" href=".png" />-->
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
   <script type="text/javascript" src="src/loadingPage.js"></script>
@@ -70,7 +69,6 @@
       splash.style.display = 'block';
 
       function loadScript(moduleName, cb) {
-        progressBar(percentage);
         function scriptLoaded() {
           document.body.removeChild(domScript);
           domScript.removeEventListener('load', scriptLoaded, false);
